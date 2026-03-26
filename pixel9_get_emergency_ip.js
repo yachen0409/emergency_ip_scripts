@@ -1,4 +1,5 @@
 Java.perform(function() {
+    var Log = Java.use("android.util.Log");
     var TAG = "frida-emergency-ip-fetcher";
     
     // Helper function to output debug log to logcat
