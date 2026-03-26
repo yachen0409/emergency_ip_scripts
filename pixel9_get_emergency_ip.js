@@ -1,4 +1,23 @@
 Java.perform(function() {
+    var TAG = "frida-emergency-ip-fetcher";
+    
+    // Helper function to output debug log to logcat
+    function logInfo(message) {
+        Log.i(TAG, message);
+    }
+    
+    // Timestamp helper function
+    function getTimestamp() {
+        var now = new Date();
+        var month = String(now.getMonth() + 1).padStart(2, '0');
+        var day = String(now.getDate()).padStart(2, '0');
+        var hours = String(now.getHours()).padStart(2, '0');
+        var minutes = String(now.getMinutes()).padStart(2, '0');
+        var seconds = String(now.getSeconds()).padStart(2, '0');
+        var milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+        return month + "-" + day + " " + hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+    }
+
     function triggerEmergencyPdn(slotId) {
         var ts = getTimestamp();
         logInfo("triggerEmergencyPdn() called for slotId=" + slotId);
